@@ -1,10 +1,4 @@
-const convertTimestamp = (timestamp) => {
-  if (!timestamp || isNaN(timestamp)) return 'Invalid timestamp';
-  if (timestamp.length === 10) timestamp = timestamp * 1000;
-  timestamp = Number(timestamp);
-  const date = new Date(timestamp);
-  return date.toLocaleString();
-};
+import { convertTimestamp, normalizeTimestamp } from '../utils/date-helper.js';
 
 chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.create({
@@ -16,16 +10,20 @@ chrome.runtime.onInstalled.addListener(function () {
 
 chrome.contextMenus.onClicked.addListener(convertOnClick);
 
-function convertOnClick(info) {
-  const timestamp = info.selectionText;
+function convertOnClick(info, tab) {
+  if (!tab || tab.id < 0) return;
+  const timestamp = normalizeTimestamp(info.selectionText);
   if (timestamp) {
     const date = convertTimestamp(timestamp);
-    console.log(date);
-    chrome.notifications.create({
-      type: 'basic',
-      iconUrl: '../images/icon-128.png',
-      title: 'Timestamp Converter',
-      message: date,
+    chrome.tabs.sendMessage(tab.id, { action: 'getContextMenuEvent' }, (response) => {
+      if (response) {
+        chrome.tabs.sendMessage(tab.id, {
+          action: 'showTooltip',
+          message: date,
+          x: response.pageX,
+          y: response.pageY,
+        });
+      }
     });
   }
 }
