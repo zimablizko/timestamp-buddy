@@ -28,7 +28,9 @@ LinkedIn - [@nikolaev-evgenii](https://www.linkedin.com/in/nikolaev-evgenii/)
 
 Telegram - [@heavyheavyrain](https://t.me/heavyheavyrain)
 
-Project Link: [https://github.com/zimablizko/timestamp-buddy](https://github.com/zimablizko/timestamp-buddy)
+GitHub - [@zimablizko](https://github.com/zimablizko)
+
+Project Link - [https://github.com/zimablizko/timestamp-buddy](https://github.com/zimablizko/timestamp-buddy)
 
 ## Contributing
 
