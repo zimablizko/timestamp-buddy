@@ -5,24 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./popup.css" />
+    <title>Timestamp Buddy</title>
   </head>
   <body>
-    <template id="li_template">
-      <li>
-        <a>
-          <h3 class="title"></h3>
-          <p class="pathname">Tab Pathname</p>
-        </a>
-      </li>
-    </template>
-
-    <h1>Convert to Date</h1>
-    <button id="btnGetCurrentTimestamp">Current timestamp</button>
-    <input type="text" id="inputTimestamp">
-    <button id="btnConvert">Convert</button>
-    <input type="text" id="result" readonly>
-    <ul></ul>
-
+    <h1>Timestamp Buddy</h1>
+    <div class="container">
+      <button id="btnGetCurrentTimestamp">Get Current Timestamp</button>
+      <input type="text" id="inputTimestamp" placeholder="Enter timestamp here" />
+      <button id="btnConvert">Convert</button>
+      <input type="text" id="result" readonly placeholder="Converted Date" />
+      <p class="author">Made by <a href="https://github.com/zimablizko" target="_blank">zimablizko</a></p>
+    </div>
     <script src="./popup.js" type="module"></script>
   </body>
 </html>
